@@ -19,12 +19,12 @@ def decode(element):
     #print temp
 
     #replace #
-    for sym in temp:
-        if sym != '#':
-            res += sym
+    for j in temp:
+        if j != '#':
+            res += j
         else:
             res += char
-        char = sym
+        char = j
     return res
 
 print decode('11122234###55')
