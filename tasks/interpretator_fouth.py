@@ -2,7 +2,7 @@
 res = []
 
 
-def put(element):    # 'put'
+def put(element):
     if element.isdigit():
         res.append(int(element))
     else:
@@ -17,33 +17,54 @@ def pop():
 
 def add():
     if type(res[-1]) == str:
-        summ = ''
+        j = ''
     else:
-        summ = 0
+        j = 0
     for i in range(-2, 0):
-        summ += res[i]
+        j += res[i]
         res.pop(i)
-    res.append(summ)
+    res.append(j)
     return res
 
+
 def sub():
+    j = res[-2] - res[-1]
+    for i in range(-2, 0):
+        res.pop(i)
+    res.append(j)
+    return res
 
 
-lines = (line.rstrip() for line in open('example.rtf'))
-
-for line in lines:
-    if line[:3] == 'put':
-        put(line[4:])
-
-    elif line == 'pop':
-        pop()
-
-    elif line == 'add':
-        if type(res[-1]) == type(res[-2]):
-            add()
-        else:
-            print 'Недопустимые типы данных'
+def random():
+    print res[-1]
 
 
-print res
+def eval_forth(file_name):
+    lines = (line.rstrip() for line in open(file_name))
 
+    for line in lines:
+        if line[:3] == 'put':
+            put(line[4:])
+
+        elif line == 'pop':
+            pop()
+
+        elif line == 'add':
+            if type(res[-1]) == type(res[-2]):
+                add()
+            else:
+                print 'Недопустимые типы данных для сложения'
+
+        elif line == 'sub':
+            if type(res[-1]) == type(res[-2]) == int:
+                sub()
+            else:
+                print 'Недопустимые типы данных для вычитания'
+
+        elif line == 'print':
+            random()
+
+        elif line[0] == '#':
+            print 'it is comment'
+
+eval_forth('example.rtf')
