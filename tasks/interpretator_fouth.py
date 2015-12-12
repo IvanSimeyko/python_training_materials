@@ -40,6 +40,9 @@ def random():
 
 
 def eval_forth(file_name):
+    """
+    A simple interpreter language forth
+    """
     lines = (line.rstrip() for line in open(file_name))
 
     for line in lines:
