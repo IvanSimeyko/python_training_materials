@@ -2,12 +2,20 @@
 
 
 def summ (a, b):
+
+    """
+    return sum of two elements
+    """
     return a + b
 
 x = summ(4, 5)    # вызов функции, тут выполнется тело функции
 print(x)
 
-# Обсласть видимости - место где опрееляется переменна и выполняется ее поиск
+help(summ)    # читаем строку документации
+print(summ.__doc__)    # еще раз
+
+
+# Обсласть видимости - место где опреляется переменна и выполняется ее поиск
 
 x = 5    # глобальная переменная
 
@@ -19,6 +27,22 @@ def change_x(x):     # глобальная переменная
 y = change_x(x)
 
 print(x, y)    # значение х не поменялось
+
+# Еще один интересный пример
+GLOBAL_VAR = 10
+
+def add_global_var(a):
+    res = a + GLOBAL_VAR    # в области видимости функции переменная GLOBAL_VAR
+    GLOBAL_VAR = 3          # задана после присваивания
+    return res
+# print(add_global_var(3))    # получим UnboundLocalError: local variable 'c' referenced before assignment
+
+# Еще один пример
+def f3(v1, v2=[]):
+    print(v2)
+    v2.append(v1)
+    return v2
+
 
 # Переменные бывают локальные, нелокальные, глобальные, встроенные
 
