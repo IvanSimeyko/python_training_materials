@@ -37,11 +37,14 @@ def add_global_var(a):
     return res
 # print(add_global_var(3))    # получим UnboundLocalError: local variable 'c' referenced before assignment
 
-# Еще один пример
+# Еще один пример, который пока не понятно как работает
 def f3(v1, v2=[]):
     print(v2)
     v2.append(v1)
     return v2
+
+#f3(0)    # [0]
+#f3(1)    # [0,1]
 
 
 # Переменные бывают локальные, нелокальные, глобальные, встроенные
