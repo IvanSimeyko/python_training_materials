@@ -1,0 +1,9 @@
+Словари очень гибкий тип данных. Мы можем сохранять функции в словарях:
+def hello_world():
+    print 'Hello wolrld'
+
+a = hello_world
+d = {1: a}
+d[1]()    # 'Hello world'
+
+
