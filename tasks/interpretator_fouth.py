@@ -36,7 +36,7 @@ def sub():
 
 
 def random():
-    print res[-1]
+    print(res[-1])
 
 
 def eval_forth(file_name):
@@ -71,3 +71,7 @@ def eval_forth(file_name):
             print 'it is comment'
 
 eval_forth('example.rtf')
+
+
+class Fouth():
+    pass
