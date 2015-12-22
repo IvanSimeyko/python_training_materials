@@ -74,4 +74,39 @@ eval_forth('example.rtf')
 
 
 class Fouth():
-    pass
+
+    """
+    A simple interpreter language forth
+    """
+    res = []
+
+    def __init__(self, name_file):
+        self.file = name_file
+
+    def put(self, element):
+        if element.isdigit():
+            self.res.append(int(element))
+        else:
+            self.res.append(element)
+        return self.res
+
+    def pop(self):
+        self.res.pop()
+        return self.res
+
+
+    def eval_forth(self):
+        lines = (line.rstrip() for line in open(self.file))
+        for line in lines:
+            if line[:3] == 'put':
+                self.put(line[4:])
+            elif line == 'pop':
+                self.pop()
+
+
+a = Fouth('example.rtf')
+print a.file
+a.eval_forth()
+print a.res
+
+
