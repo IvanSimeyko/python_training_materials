@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+
+'''
 res = []
 
 
@@ -71,7 +73,7 @@ def eval_forth(file_name):
             print 'it is comment'
 
 eval_forth('example.rtf')
-
+'''
 
 class Fouth():
 
@@ -94,6 +96,17 @@ class Fouth():
         self.res.pop()
         return self.res
 
+    def add(self):
+        if type(self.res[-1]) == str:
+            j = ''
+        else:
+            j = 0
+        for i in range(-2, 0):
+            j += self.res[i]
+            self.res.pop(i)
+        self.res.append(j)
+        return self.res
+
 
     def eval_forth(self):
         lines = (line.rstrip() for line in open(self.file))
@@ -103,10 +116,19 @@ class Fouth():
             elif line == 'pop':
                 self.pop()
 
+            elif line == 'add':
+                if type(self.res[-1]) == type(self.res[-2]):
+                    self.add()
+                else:
+                    print 'Недопустимые типы данных для сложения'
+
+            elif line[0] == '#':
+                print 'it is comment'
+
 
 a = Fouth('example.rtf')
 print a.file
 a.eval_forth()
-print a.res
+print 'res= ', a.res
 
 
