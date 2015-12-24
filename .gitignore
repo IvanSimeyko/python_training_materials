@@ -5,4 +5,5 @@
 *.gitignore~
 *.*~
 .idea/
+.fuse_hidden*
 

@@ -37,7 +37,7 @@ def sub():
     return res
 
 
-def random():
+def result():
     print(res[-1])
 
 
@@ -67,7 +67,7 @@ def eval_forth(file_name):
                 print 'Недопустимые типы данных для вычитания'
 
         elif line == 'print':
-            random()
+            result()
 
         elif line[0] == '#':
             print 'it is comment'
@@ -107,12 +107,24 @@ class Fouth():
         self.res.append(j)
         return self.res
 
+    def sub(self):
+        j = self.res[-2]
+        j -= self.res[-1]
+        for i in range(-2, 0):
+            self.res.pop(i)
+        self.res.append(j)
+        return self.res
+
+    def result(self):
+        print self.res[-1]
 
     def eval_forth(self):
         lines = (line.rstrip() for line in open(self.file))
+
         for line in lines:
             if line[:3] == 'put':
                 self.put(line[4:])
+
             elif line == 'pop':
                 self.pop()
 
@@ -122,13 +134,18 @@ class Fouth():
                 else:
                     print 'Недопустимые типы данных для сложения'
 
-            elif line[0] == '#':
-                print 'it is comment'
+            #elif line[0] == '#':
+             #   print 'it is comment'
 
+            elif line == 'sub':
+                if type(self.res[-1]) == type(self.res[-2]) == int:
+                    self.sub()
+                else:
+                    print "Недопустимые типы данных для вычитания"
+
+            elif line == 'print':
+                self.result()
 
 a = Fouth('example.rtf')
-print a.file
 a.eval_forth()
-print 'res= ', a.res
-
-
+print 'res =', a.res
