@@ -37,9 +37,17 @@ def students(file_name):
     Также в конце, на отдельной строке, через пробел запишите средние баллы по математике, физике и русскому языку
     по всем абитуриентам:
     """
-    lines = (line for line in open(file_name))
+    i = 0
+    mathematics, physics, russian = 0, 0, 0
+    lines = (line.strip().split(';') for line in open(file_name))
     for line in lines:
-        print(line)
+        average = (float(line[1]) + float(line[2]) + float(line[3])) / 3
+        mathematics += float(line[1])
+        physics += float(line[2])
+        russian += float(line[3])
+        i += 1.0
+        print(average)
+    print('{} {} {}'.format(mathematics/i, physics/i, russian/i))
 
-students('1.txt')
+students('dataset_3363_4.txt')
 
