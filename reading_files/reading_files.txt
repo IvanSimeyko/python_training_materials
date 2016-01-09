@@ -1,0 +1,23 @@
+Построчное чтение файлов:
+
+with open('input.txt') as inf:
+    for line in inf:
+        line = line.strip()    #убираем экранированные символы в конце и начале строки
+        print(line)
+
+
+Запись в файл:
+ouf = open('file.txt', 'w')
+ouf.write('Some text \n')
+ouf.write(str(25))    # преобразовывем типы данных в строку
+...
+ouf.close()
+
+или 
+
+with open('file.txt', 'w') as ouf:
+    ouf.write('Some text \n')
+    ...
+
+# здесь файл уже закрыт
+
