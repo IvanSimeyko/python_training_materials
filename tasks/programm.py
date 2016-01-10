@@ -51,7 +51,7 @@ def list_component(file):
     return res
 
 
-print list_component('logs/1.txt')
+#print list_component('logs/1.txt')
 
 
 
