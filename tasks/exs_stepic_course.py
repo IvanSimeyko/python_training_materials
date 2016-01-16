@@ -65,4 +65,38 @@ def football_result():
         result_function += '\n'
     return result_function
 
-print(football_result())
+#print(football_result())
+
+
+def substitution_cipher():
+    """
+    Функция принимает на вход две строки одинаковой длины, на первой строке записаны символы исходного алфавита,
+    на второй строке — символы конечного алфавита, после чего идёт строка, которую нужно зашифровать переданным ключом,
+    и ещё одна строка, которую нужно расшифровать.
+    """
+    source = input('Введите исходный текст: ')
+    cipher = input('Введите аналог зашифрованного текста: ')
+
+    input_source = input("Введите строку, котоорую нужно зашифровать: ")
+    input_cipher = input('Введите строку, которую нужно расшифровать: ')
+    res_input = ''
+    res_output = ''
+
+    # первый вариант
+    for i in input_source:
+        if i in dict(zip(source, cipher)):
+            res_input += dict(zip(source, cipher))[i]
+    for i in input_cipher:
+        if i in dict(zip(cipher, source)):
+            res_output += dict(zip(cipher, source))[i]
+
+    # второй вариант решения
+    res_in = ''.join([dict(zip(source, cipher))[i] for i in input_source if i in dict(zip(source, cipher))])
+    res_o = ''.join([dict(zip(cipher, source))[i] for i in input_cipher if i in dict(zip(cipher, source))])
+
+    return res_input, res_in, res_output, res_o
+
+#print(substitution_cipher())
+
+
+def glossary
