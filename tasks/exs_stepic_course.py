@@ -161,5 +161,30 @@ def turtle():
 
 #print(turtle())
 
+
 def average_height(file_name):
-    
+    """
+    Функция, которая читает файл и подсчитывает для каждого класса средний рост учащегося.Выводить информацию о среднем
+    росте следует в порядке возрастания номера класса (для классов с первого по одиннадцатый). Если про какой-то класс
+    нет информации, необходимо вывести напротив него прочерк.
+    """
+    res = ''
+    n = [[i, 0, 0] for i in range(1, 12)]
+    #print(n)
+    with open(file_name) as inf:
+        for i in inf:
+            i = i.split()
+            #print(i)
+            for j in n:
+                if int(i[0]) == j[0]:
+                    j[1] += int(i[2])
+                    j[2] += 1.0
+    for elem in n:
+        if elem[1] != 0:
+            res = res + str(elem[0]) + ' ' + str(elem[1]/elem[2]) + '\n'
+        elif elem[1] == 0:
+            res = res + str(elem[0]) + ' ' + '-' + '\n'
+    return res
+
+
+print(average_height('dataset_3380_5.txt'))
