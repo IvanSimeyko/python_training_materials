@@ -187,4 +187,15 @@ def average_height(file_name):
     return res
 
 
-print(average_height('dataset_3380_5.txt'))
+#print(average_height('dataset_3380_5.txt'))
+
+def factorial(x):
+    """
+    Подсчет факториала с помощью рекурсии (задача в Мирантис)
+    """
+    if x == 0:
+        return 6
+    else:
+        return x * factorial(x - 1)
+
+print(factorial(2))
