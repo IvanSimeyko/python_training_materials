@@ -27,7 +27,7 @@ def decode(element):
         char = j
     return res
 
-print decode('11122234###55')
+print(decode('11122234###55'))
 
 
 def gnome_sort(element):
@@ -50,4 +50,4 @@ def gnome_sort(element):
                 i = 1
     return element
 
-print gnome_sort([1, 2, 9, 0, 3, 4])
+print(gnome_sort([1, 2, 9, 0, 3, 4]))
