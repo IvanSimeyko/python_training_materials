@@ -1,0 +1,4 @@
+import shutil
+
+shutil.copy('current_path', 'new_path') # copies file
+shutil.tree('current_dit', 'new_path/namedir') # copies dir
