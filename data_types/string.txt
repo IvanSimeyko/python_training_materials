@@ -1,0 +1,11 @@
+>>> 'abs' in 'abcba'
+False
+>>> 'abs' in 'absba'
+True
+
+Method find()
+>>> 'xyzabc'.find('abc')
+3
+>>> 'xyzabc'.find('zbc')
+-1
+
