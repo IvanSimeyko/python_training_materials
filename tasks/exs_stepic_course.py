@@ -194,7 +194,7 @@ def factorial(x):
     Подсчет факториала с помощью рекурсии (задача в Мирантис)
     """
     if x == 0:
-        return 6
+        return 1
     else:
         return x * factorial(x - 1)
 

@@ -40,4 +40,4 @@ Traceback (most recent call last):
 StopIteration
 checkpoint 3
 
-Что произойдет если мы используем слово return внутри генератора
+Что произойдет если мы используем слово return внутри генератора - он выполнит returne и вернет ошибку StopIterations
